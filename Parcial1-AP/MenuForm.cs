@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Parcial1_AP.UI.Registros;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Parcial1_AP
         public MenuForm()
         {
             InitializeComponent();
+        }
+
+        private void RegistroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Registro registro = new Registro();
+            registro.Show();
         }
     }
 }

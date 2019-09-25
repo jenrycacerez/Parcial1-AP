@@ -10,7 +10,7 @@ namespace Parcial1_AP.DAL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Personas> Personas { get; set; }
+        public DbSet<Evaluacion> Evaluacion { get; set; }
         
         public Contexto() : base("ConStr")
         {
