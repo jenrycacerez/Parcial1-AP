@@ -47,6 +47,8 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.PronosticocomboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -72,7 +74,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 159);
+            this.label3.Location = new System.Drawing.Point(24, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 20);
             this.label3.TabIndex = 2;
@@ -81,7 +83,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 287);
+            this.label5.Location = new System.Drawing.Point(24, 242);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 20);
             this.label5.TabIndex = 4;
@@ -90,7 +92,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(295, 287);
+            this.label6.Location = new System.Drawing.Point(283, 242);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 20);
             this.label6.TabIndex = 5;
@@ -99,7 +101,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(175, 287);
+            this.label7.Location = new System.Drawing.Point(151, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 20);
             this.label7.TabIndex = 6;
@@ -107,6 +109,8 @@
             // 
             // FechadateTimePicker
             // 
+            this.FechadateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.FechadateTimePicker.Location = new System.Drawing.Point(309, 58);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(130, 26);
@@ -132,7 +136,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(154, 222);
+            this.label8.Location = new System.Drawing.Point(151, 201);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 20);
             this.label8.TabIndex = 10;
@@ -140,21 +144,22 @@
             // 
             // EstudiantetextBox
             // 
-            this.EstudiantetextBox.Location = new System.Drawing.Point(128, 153);
+            this.EstudiantetextBox.Location = new System.Drawing.Point(116, 144);
             this.EstudiantetextBox.Name = "EstudiantetextBox";
-            this.EstudiantetextBox.Size = new System.Drawing.Size(214, 26);
+            this.EstudiantetextBox.Size = new System.Drawing.Size(323, 26);
             this.EstudiantetextBox.TabIndex = 11;
             // 
             // ValortextBox
             // 
-            this.ValortextBox.Location = new System.Drawing.Point(28, 322);
+            this.ValortextBox.Location = new System.Drawing.Point(28, 281);
             this.ValortextBox.Name = "ValortextBox";
             this.ValortextBox.Size = new System.Drawing.Size(100, 26);
             this.ValortextBox.TabIndex = 12;
+            this.ValortextBox.TextChanged += new System.EventHandler(this.ValortextBox_TextChanged);
             // 
             // PerdidotextBox
             // 
-            this.PerdidotextBox.Location = new System.Drawing.Point(275, 322);
+            this.PerdidotextBox.Location = new System.Drawing.Point(287, 281);
             this.PerdidotextBox.Name = "PerdidotextBox";
             this.PerdidotextBox.ReadOnly = true;
             this.PerdidotextBox.Size = new System.Drawing.Size(100, 26);
@@ -162,14 +167,15 @@
             // 
             // LogradotextBox
             // 
-            this.LogradotextBox.Location = new System.Drawing.Point(155, 322);
+            this.LogradotextBox.Location = new System.Drawing.Point(155, 281);
             this.LogradotextBox.Name = "LogradotextBox";
             this.LogradotextBox.Size = new System.Drawing.Size(100, 26);
             this.LogradotextBox.TabIndex = 14;
+            this.LogradotextBox.TextChanged += new System.EventHandler(this.LogradotextBox_TextChanged);
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(28, 400);
+            this.Nuevobutton.Location = new System.Drawing.Point(28, 443);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(100, 62);
             this.Nuevobutton.TabIndex = 16;
@@ -179,7 +185,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(155, 400);
+            this.Guardarbutton.Location = new System.Drawing.Point(190, 443);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(97, 62);
             this.Guardarbutton.TabIndex = 17;
@@ -189,7 +195,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(275, 400);
+            this.Eliminarbutton.Location = new System.Drawing.Point(337, 443);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(100, 62);
             this.Eliminarbutton.TabIndex = 18;
@@ -201,11 +207,35 @@
             // 
             this.ErrorProvider.ContainerControl = this;
             // 
+            // PronosticocomboBox
+            // 
+            this.PronosticocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PronosticocomboBox.FormattingEnabled = true;
+            this.PronosticocomboBox.Items.AddRange(new object[] {
+            "Continuar",
+            "Suspenso",
+            "Retirar"});
+            this.PronosticocomboBox.Location = new System.Drawing.Point(28, 364);
+            this.PronosticocomboBox.Name = "PronosticocomboBox";
+            this.PronosticocomboBox.Size = new System.Drawing.Size(411, 28);
+            this.PronosticocomboBox.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 341);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 20);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Por Como Vas Deberias:";
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 556);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.PronosticocomboBox);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -225,6 +255,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Registro";
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.Registro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
@@ -252,5 +283,7 @@
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox PronosticocomboBox;
     }
 }

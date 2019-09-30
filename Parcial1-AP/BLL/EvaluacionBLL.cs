@@ -74,7 +74,7 @@ namespace Parcial1_AP.BLL
 
                 catch (Exception)
                 {
-                    throw;
+                    //throw;
                 }
                 finally
                 {
@@ -125,26 +125,26 @@ namespace Parcial1_AP.BLL
 
 
             }
+            public static int SeleccionarPronostico(Evaluacion evaluacion)
+            {
+                int ItemSeleccionado = 0;
+                decimal auxiliar;
+                decimal resultado;
 
-        public static int SeleccionarPronostico(Evaluacion evaluacion)
-        {
-            int ItemSeleccionado = 0;
-            decimal auxiliar;
-            decimal resultado;
+                auxiliar = (evaluacion.Logrado / evaluacion.Valor) * 100;
+                resultado = 100 - auxiliar;
 
-            auxiliar = (evaluacion.Logrado / evaluacion.Valor) * 100;
-            resultado = 100 - auxiliar;
+                if (resultado < 25)
+                    ItemSeleccionado = 0;
+                else if (resultado >= 25 && resultado <= 30)
+                    ItemSeleccionado = 1;
+                else if (resultado > 25)
+                    ItemSeleccionado = 2;
 
-            if (resultado < 25)
-                ItemSeleccionado = 0;
-            else if (resultado >= 25 && resultado <= 30)
-                ItemSeleccionado = 1;
-            else if (resultado > 25)
-                ItemSeleccionado = 2;
-
-            return ItemSeleccionado;
-        }
+                return ItemSeleccionado;
+            }
     }
+
 }
 
       

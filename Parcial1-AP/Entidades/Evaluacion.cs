@@ -21,6 +21,7 @@ namespace Parcial1_AP.Entidades
 
         public decimal Perdido { get; set; }
         
+        public int Pronostico { get; set; }
 
         public Evaluacion()
         {
@@ -30,6 +31,7 @@ namespace Parcial1_AP.Entidades
             Valor = 0;
             Logrado = 0;
             Perdido = 0;
+            Pronostico = 0;
 
 
         }
